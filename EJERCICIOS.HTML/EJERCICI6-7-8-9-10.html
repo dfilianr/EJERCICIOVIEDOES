@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicios de Programación en JavaScript</title>
+  </head>
+
+  <body>
+    <h1>Ejercicios de Programación en JavaScript</h1>
+    <script>
+ 
+ /* 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2 */
+      const textoEnCadena = (cadena = "", texto = "") => {
+        if (!cadena) return console.warn("No ingresaste el texto largo");
+
+        if (Itexto) return console.warn("No ingresaste la palabra a evaluar");
+
+        let i = 0,
+          contador = 0;
+        while (i !== -1) {
+          i = cadena.indexOf(texto, i);
+          if (i !== -1) {
+            i++;
+            contador++;
+          }
+        }
+        return console.info(`La palabra ${texto} se repite ${contador} veces`);
+      };
+
+      textoEnCadena();
+      textoEnCadena("", "mundo");
+      textoEnCadena("hola mundo adios mundo");
+      textoEnCadena("hola mundo adios mundo", "mundo");
+
+      /* 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true */
+      const palindromo = (palabra = "") => {
+        if (!palabra) return console.warn("No ingresaste una palabra o frase");
+
+        palabra = palabra.toLowerCase();
+        let alReves = palabra.split("").reverse().join("");
+
+        return palabra === alReves
+          ? console.info(
+              `Si es palíndromo, Palabra original ${palabra}, Palabra al revés ${alReves}`
+            )
+          : console.info(
+              `No es palíndromo, Palabra original ${palabra}, Palabra al revés ${alReves}`
+            );
+      };
+
+      palindromo();
+      palindromo("hola Mundo");
+      palindromo("Salas");
+
+      /* 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5 */
+
+      const eliminarCaracteres = (texto = "", patron = "") =>
+        !texto
+          ? console.warn("No ingresaste un texto")
+          : patron
+          ? console.warn("No ingresaste un patrón de caracteres")
+          : console.info(texto.replace(new RegExp(patron, "ig"), ""));
+
+      eliminarCaracteres();
+      eliminarCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5");
+      eliminarCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz");
+      eliminarCaracteres(
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta dolor eligendi officia molestias mollitia, odit consectetur voluptate, recusandae velit voluptas est id nulla aut illum quibusdam asperiores ab at repellat.",
+        "[a-z]"
+      );
+
+      /* 9) Programa una función que obtenga un numero aleatorio entre 501 y 600 */
+      const aleatorio = () => console.info(Math.round(Math.random) * 100);
+
+      aleatorio();
+
+      /* 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true  */
+
+      const capicua = (numero = 0) => {
+        if (!numero) return console.warn("No ingresaste un número");
+
+        if (typeof numero !== "number")
+          return console.error(
+            'El valor "${numero}" ingresado, NO es un número'
+          );
+
+        numero = numero.toString();
+        let alReves = numero.split("").reverse().join("");
+
+        return numero === alReves
+          ? console.info(
+              `Si es capicua, Número original ${numero}, Número al revés ${alReves}`
+            )
+          : console.info(
+              `No es capícua, Número original ${numero}, Número al revés ${alReves}`
+            );
+      };
+      capicua();
+      capicua("19");
+      capicua({});
+      capicua(2000);
+      capicua(2002);
+      capicua(18.99);
+      capicua(212.212);

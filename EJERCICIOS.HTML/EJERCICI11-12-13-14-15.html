@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicios de Programación en JavaScript</title>
+  </head>
+
+  <body>
+    <h1>Ejercicios de Programación en JavaScript</h1>
+    <script>
+
+/* 11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120 */
+
+      const factorial = (numero = undefined) => {
+        if (numero === undefined)
+          return console.warn("No ingresaste un número");
+
+        if (typeof numero !== "number")
+          return console.error(
+            `El valor "${numero}" ingresado, NO es un número`
+          );
+
+        if (numero === 0) return console.error("El número no puede ser 0");
+
+        if (Math.sign(numero) === -1)
+          return console.error("El número no puede ser negativo");
+
+        let factorial = 1;
+
+        for (let i = numero; i > 1; i--) {
+          factorial *= i;
+        }
+      };
+      factorial();
+      factorial("5");
+      factorial((1, 2, 3));
+      factorial(0);
+      factorial(-5);
+      factorial(5);
+      factorial(8);
+
+      /* 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true */
+
+      const numeroPrimo = (numero = undefined) => {
+        if (numero === undefined)
+          return console.warn("No ingresaste un número");
+
+        if (typeof numero !== "number")
+          return console.error(
+            `El valor "S{numero}" ingresado, NO es un número`
+          );
+
+        if (numero === 0) return console.error("El número no puede ser 0");
+
+        if (numero === 1) return console.error("El número no puede ser 1");
+
+        if (Math.sign(numero) === -1)
+          return console.error("El número no puede ser negativo");
+
+        let divisible = false;
+
+        for (let i = 2; i < numero; i++) {
+          if (numero % i === 0) {
+            divisible = true;
+            break;
+          }
+        }
+
+        return divisible
+          ? console.log(`El número ${numero}, NO es primo`)
+          : console.log(`El número ${numero}, Sí es primo`);
+      };
+
+      numeroPrimo();
+      numeroPrimo("320");
+      numeroPrimo(true);
+      numeroPrimo(0);
+      numeroPrimo(1);
+      numeroPrimo(-13);
+      numeroPrimo(13);
+      numeroPrimo(200);
+
+      /* 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar */
+
+      const numeroParlmpar = (numero = undefined) => {
+        if (numero === undefined)
+          return console.warn("No ingresaste un número");
+
+        if (typeof numero !== "number")
+          return console.error(
+            `El valor "${numero}" ingresado, NO es un número`
+          );
+
+        return numero % 2 === 0
+          ? console.info(`El número ${numero} es Par`)
+          : console.info(`El número ${numero} es Impar`);
+      };
+      numeroParlmpar();
+      numeroParlmpar("23");
+      numeroParlmpar(-398);
+      numeroParlmpar(19);
+
+      /* 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F */
+
+      const convertirGrados = (grados = undefined, unidad = undefined) => {
+        if (grados === undefined)
+          return console.warn("No ingresaste grados a convertir");
+
+        if (typeof grados !== "number")
+          return console.error(
+            `El valor "${grados}" ingresado, NO es un número`
+          );
+
+        if (unidad === undefined)
+          return console.warn("No ingresaste el tipo de grado a convertir");
+
+        if (typeof unidad !== "string")
+          return console.error(
+            `El valor "${unidad};" ingresado, NO es una cadena de texto`
+          );
+
+        if (unidad.length !== 1 || !/(CF)/.test(unidad))
+          return console.warn("Valor de unidad no reconocido");
+
+        if (unidad === "C") {
+          return console.info(
+            `${grados}°C = ${Math.round((grados * (9/5)) + 32)}°F`
+          );
+        } else if (unidad === "F") {
+          return console.info(
+            `${grados}°F = ${Math.round(((grados - 32) * (5 / 9)))}"C`
+          );
+        } else {
+          return console.error("El tipo de grados a convertir NO es válido");
+        }
+
+        console.info(
+          "wiii funciono no tendré que volver a grabar este video por cosas que se e ocurren en tiempo real"
+        );
+      };
+
+      convertirGrados();
+      convertirGrados("2");
+      convertirGrados(2);
+      convertirGrados(2, true);
+      convertirGrados(2, "Hola");
+      convertirGrados(2, "E");
+      convertirGrados(0, "C");
+      convertirGrados(100, "C");
+      convertirGrados(32, "F");
+      convertirGrados(100, "F");
+
+      /* 15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10 */
+
+      const convertirBinarioDecimal = (
+        numero = undefined,
+        base = undefined
+      ) => {
+        if (numero === undefined)
+          return console.warn("No ingresaste el número a convertir");
+
+        if (typeof numero !== "number")
+          return console.error(
+            `El valor "${numero}" ingresado, NO es un número`
+          );
+
+        if (base === undefined)
+          return console.warn("No ingresaste la base a convertir");
+
+        if (typeof base !== "number")
+          return console.error(`El valor "${base}" ingresado, NO es un número`);
+
+        if (base === 2) {
+          return console.info(
+            `${numero} base ${base} = ${parselnt(numero, base)} base 10`
+          );
+        } else if (base === 10) {
+          return console.info(
+            `${numero} base ${base} = ${(numero.toString (base))} base 2`
+          );
+        } else {
+          return console.error("El tipo de base a convertir NO es válido");
+        }
+      };
+      convertirBinarioDecimal();
+      convertirBinarioDecimal("2");
+      convertirBinarioDecimal(100);
+      convertirBinarioDecimal(100, "2");
+      convertirBinarioDecimal(100, 2);
+      convertirBinarioDecimal(1110010, 2);
+      convertirBinarioDecimal(4, 10);
+      convertirBinarioDecimal(114, 10);
+      convertirBinarioDecimal(114, 3);
